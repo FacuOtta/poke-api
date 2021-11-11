@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Pokemon-Hollow';
+  src: local('Pokemon-Hollow'), url('./fonts/Pokemon Hollow.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pokemon-Solid';
+  src: local('Pokemon-Solid'), url('./fonts/Pokemon Solid.ttf') format('truetype');
+}
+
+:root{
+  --yellow: #ffcc00;
+  --orange: #e49c18;
+  --dark-orange: #c78815;
+  --error-msg: #c21313;
+  --error-msg-bg: #f2c9c9;
+}
+
+/* Resetting styles */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--orange);
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: 0;
+  padding: 20px;
+  margin: 0 10px;
+  border-radius: 3px;
+  background: #2873b9;
+  color: white;
+  font-family: 'Pokemon-Solid';
+  letter-spacing: 5px;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+/* End Resetting Styles */
+
+header {
+  text-align: center;
+  background-color: var(--yellow);
+
+  .logo{
+    max-width: 400px;
+    width: 100%;
+    margin: 15px 0;
+    width: 90%;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;  
+  font-family: 'Pokemon-Solid', sans-serif;
+  letter-spacing: 5px;
+  font-size: 14px;
+  background-color: var(--orange);
+
+  .poke-list-section{   
+    width: 100%;
+    max-width: 972px;
+  
+  
+    .pagination-info{
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    .font-descriptions{
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+  
+    .error{
+      color: var(--error-msg);
+      border: 1px solid;
+      padding: 20px;
+      background: var(--error-msg-bg);
+      border-radius: 3px;
+    }
+  }
+}
+

@@ -1,0 +1,34 @@
+{
+  "pokemons": [
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+      "mainMove": "Seed Bomb"
+    },
+    {
+      "name": "Ivysaur",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
+      "mainMove": "Sludge Bomb",
+      "id": 2
+    },
+    {
+      "name": "Venusaur",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+      "mainMove": "Swords Dance",
+      "id": 3
+    },
+    {
+      "name": "Charizard",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
+      "mainMove": "Mega Punch",
+      "id": 4
+    },
+    {
+      "name": "Snorlax",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png",
+      "mainMove": "Hyper Beam",
+      "id": 5
+    }
+  ]
+}

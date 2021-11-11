@@ -1,0 +1,43 @@
+.pokemon {
+  text-align: center;
+  margin: 20px 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #dfc38f;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 250px;
+  min-height: 495px;
+
+  .delete {
+    .actions {
+      margin: 30px 0;
+    }
+  }
+
+  .actions {
+    margin: 15px 0;
+    img { 
+      max-width: 30px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .avatar {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .desc {
+    .title {
+      font-size: 24px;
+      font-family: 'Pokemon-Hollow';
+    }
+  }
+}
