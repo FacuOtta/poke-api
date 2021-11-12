@@ -41,33 +41,39 @@ const PokemonList = () => {
   }
 
   const isValidForm = () => {
+    let errors = 0
     if (name.length < 3) {
       setNameErr('Name should have 3 or more characters')
-      return false
+      errors++
     }
     else if (name.length > 20) {
       setNameErr('Name should have 20 or less characters')
-      return false
+      errors++
     }
     else setNameErr('')
 
     if (image.length < 3) {
-      setImageErr('Image should have 3 or more characters')
-      return false
+      setImageErr('Link to Image should have 3 or more characters')
+      errors++
+    } else if (image.indexOf('http://') === -1 && image.indexOf('https://') === -1) {
+      setImageErr('Link to Image should be a valid url')
+      errors++
     } else if (image.length > 500) {
-      setImageErr('Name should have 500 or less characters')
-      return false
+      setImageErr('Link to Image should have 500 or less characters')
+      errors++
     }
     else setImageErr('')
 
     if (mainMove.length < 3) {
       setMainMoveErr('Main Move should have 3 or more characters')
-      return false
+      errors++
     } else if (mainMove.length > 500) {
       setMainMoveErr('Main Move should have 50 or less characters')
-      return false
+      errors++
     }
     else setMainMoveErr('')
+
+    if (errors > 0) return false
 
     return true
   }
