@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useEffect } from 'react'
 import { fetchPokemons, createPokemon, updatePokemon, deletePokemon } from '../api/PokemonApi'
 import createIcon from '../img/plus_circle_icon.png'
 import Pokemon from './Pokemon'
 import '../css/PokemonList.scss'
+import LanguageContext from '../contexts/LanguageContext'
 
 const PokemonList = () => {
-  
+  const languageContext = useContext(LanguageContext)
   const [pokemonList, setPokemonList] = useState([])
   const [showForm, setShowForm] = useState(false)
   const [name, setName] = useState('')
@@ -94,7 +95,20 @@ const PokemonList = () => {
             console.log(err.message)
           })
       } else {
-        createPokemon({ name, image, mainMove })
+        
+        // const pokemon = {
+        //   name: name,
+        //   image: image,
+        //   mainMove: mainMove
+        // }
+
+        // const pokemon = {
+        //   name,
+        //   image,
+        //   mainMove
+        // }
+
+        createPokemon({name, image, mainMove})
           .then(() => {
             setShowForm(false)
             refreshPokemonList()
@@ -152,32 +166,38 @@ const PokemonList = () => {
   const cancelDelete = () => {
     setDeletingId(null)
   }
-
+  
   return(
     <div className="pokemon-list-container">
-      {!showForm && 
+      
+      {!showForm &&  
         <div>
           <div className="actions">
+            <button onClick={() => languageContext.changeLanguage('en')}>en</button>
+            <button onClick={() => languageContext.changeLanguage('es')}>es</button>
+            {languageContext.currentLanguage}
+            <br />
             <img src={createIcon} alt="create" onClick={setCreationMode} />
           </div>  
           <ul className='poke-list'>
             {pokemonList.length > 0 && pokemonList.map((pokemon) => {
-              return <Pokemon pokemon={pokemon} 
+              return <Pokemon key={pokemon.id}
+                        pokemon={pokemon} 
                         setEditMode={setEditMode} 
                         confirmDelete={confirmDelete} 
                         performDelete={performDelete} 
                         cancelDelete={cancelDelete} 
-                        deletingId={deletingId}
-                        backendError={backendError} />
+                        deletingId={deletingId}                                              
+                        backendError={backendError} />                        
             })}  
           </ul>  
         </div>
       }
-
-      {showForm && 
+  
+      {showForm &&
         <div className="form-container">
           {backendError && <div className="error">{backendError}</div>}
-
+          
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -195,7 +215,7 @@ const PokemonList = () => {
               {mainMoveErr && <div>{mainMoveErr}</div>}
             </div>
             <button type="submit">Save</button>
-            <button type="button" onClick={cancelForm}>Cancel</button>
+            <button type="button" onClick={cancelForm}>Cancel</button>                   
           </form>
         </div>
       }

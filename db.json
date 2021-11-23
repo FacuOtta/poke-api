@@ -1,10 +1,10 @@
 {
   "pokemons": [
     {
-      "id": 1,
       "name": "Bulbasaur",
       "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
-      "mainMove": "Seed Bomb"
+      "mainMove": "Seed Bomb",
+      "id": 1
     },
     {
       "name": "Ivysaur",

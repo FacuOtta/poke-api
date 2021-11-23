@@ -3,13 +3,14 @@ import deleteIcon from '../img/trash_icon.png'
 import '../css/Pokemon.scss'
 
 const Pokemon = ({ pokemon, setEditMode, confirmDelete, performDelete, cancelDelete, deletingId, backendError }) => {
+
   return (
     <li key={pokemon.name} className='pokemon'>
       {pokemon.id === deletingId && <div className="delete">
         <div>Are you sure you want to delete {pokemon.name}?</div>
         <div className="actions">
           <button onClick={performDelete}>Yes</button>
-          <button onClick={cancelDelete}>No</button>
+          <button onClick={cancelDelete}>No</button>          
         </div>
 
         {backendError && <div className="error">{backendError}</div>}
@@ -25,7 +26,7 @@ const Pokemon = ({ pokemon, setEditMode, confirmDelete, performDelete, cancelDel
             <img className='avatar' src={pokemon.image} alt={pokemon.name}/>
           </div>
           <div className="desc">
-            <span className="title">Main Move:</span>
+            <span className="title">Main Move:</span>            
             <div>
               {pokemon.mainMove}
             </div>
